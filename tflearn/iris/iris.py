@@ -24,14 +24,14 @@ feature_columns = [tf.contrib.layers.real_valued_column("", dimension=4)]
 
 # Build 3 layer DNN with 10, 20, 10 units respectively.
 classifier = tf.contrib.learn.DNNClassifier(feature_columns=feature_columns,
-                                            hidden_units=[10, 10, 10],
+                                            hidden_units=[10, 20, 10],
                                             n_classes=3,
                                             model_dir="/tmp/iris_model")
 
 # Fit model.
 classifier.fit(x=training_set.data,
                y=training_set.target,
-               steps=10)
+               steps=2000)
 
 # Evaluate accuracy.
 accuracy_score = classifier.evaluate(x=test_set.data,

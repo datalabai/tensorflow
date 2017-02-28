@@ -40,7 +40,7 @@ tf.scalar_summary("cost_function", cross_entropy)
 merge = tf.merge_all_summaries()
 summary_writer = tf.train.SummaryWriter('/tmp/tensorflow/logs', graph=tf.get_default_graph())
 
-tf.initialize_all_variables().run()
+tf.global_variables_initializer().run()
 
 # train
 for i in range(1000):
